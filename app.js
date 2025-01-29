@@ -33,13 +33,22 @@ function render(component, rootElement) {
   createEffect(updateDOM);
 }
 
+// component.js
+function Component() {
+  const greeting = "Hallochen World";
+  return `
+  <div>${greeting}</div>
+  `;
+}
+
 // app.js
 const [count, setCount] = createSignal(0);
 
 function Counter() {
   return `
     <div>
-      <h1>Count: ${count()}</h1>
+      ${Component()}
+      <div>Coudsdnt: ${count()}</div>
       <button data-action="increment">Increment</button>
     </div>
   `;
